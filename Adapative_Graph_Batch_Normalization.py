@@ -53,7 +53,7 @@ class AdapGBN(nn.Module):
         _adj[connect_matrix == True] = 1
         _adj[connect_matrix == False] = 0
         _adj = _adj * 0.25 / (_adj.sum(0, keepdims=True) + 1e-6)
-        _adj = _adj + np.identity(_adj.shape[0], np.int)
+        _adj = _adj + np.identity(_adj.shape[0], np.int64)
         print(_adj)
         pdb.set_trace()
         return _adj
@@ -77,7 +77,7 @@ class AdapGBN(nn.Module):
         cs[sample >= self.threshold_possion] = 0
         _adj = torch.from_numpy(cs).float().cuda()
         _adj = _adj * 0.5/ (_adj.sum(0, keepdims=True) + 1e-6)
-        _adj = _adj + torch.from_numpy(np.identity(_adj.shape[0], np.int)).float().cuda()
+        _adj = _adj + torch.from_numpy(np.identity(_adj.shape[0], np.int64)).float().cuda()
 
         return _adj
 

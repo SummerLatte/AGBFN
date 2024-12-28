@@ -19,7 +19,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import matplotlib.pyplot as plt
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 # import timm
-batchsize_global = 1024
+batchsize_global = 128
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--raf_path', type=str, default='/home/dyt/FER_workspace/FERdataset/RAFDB/', help='Raf-DB dataset path.')
@@ -249,8 +249,8 @@ def run_training(fold, threshold):
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                  std=[0.229, 0.224, 0.225])]) 
-    datapathlist_test = [cfg.raf_path ]
-    labelpathlist_test = [cfg.raf_label_path ]                                          
+    datapathlist_test = [cfg.raf_path]
+    labelpathlist_test = [cfg.raf_label_path]
     val_dataset = FERDataSet(datapathlist_test, labelpathlist_test, phase = 'test', transform = data_transforms_val)    
     print('Validation set size:', val_dataset.__len__())
     

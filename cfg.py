@@ -4,9 +4,9 @@ minst_draw2d_nonoise = '/home/dyt/FER_workspace/FERdataset/minst_1wclean_1112.tx
 minst_draw2d_withnoise10 = '/home/dyt/FER_workspace/FERdataset/minst_1wclean_1112_noise10.txt'
 minst_draw2d_withnoise10_index = '/home/dyt/FER_workspace/FERdataset/minst_1wclean_1112_noise10_index.txt'
 ## rafdb
-raf_path = '/home/dyt/FER_workspace/FERdataset/RAFDB/'
-raf_label_path = '/home/dyt/FER_workspace/FERdataset/rafdb_label_list.txt'
-raf_eval_path = '/home/dyt/FER_workspace/FERdataset/rafdb_eval.txt'
+raf_path = 'data/raf-basic/Image/aligned'
+raf_label_path = 'data/raf-basic/EmoLabel/list_patition_label.txt'
+raf_eval_path = 'data/raf-basic/EmoLabel/list_patition_label.txt'
 raf_noise10_label_path = '/home/dyt/FER_workspace/FERdataset/rafdb_noise10_list.txt'
 raf_noise20_label_path = '/home/dyt/FER_workspace/FERdataset/rafdb_noise20_list.txt'
 raf_noise20_label_darw_path = '/home/dyt/FER_workspace/FERdataset/rafdb_label_list_noise20_draw.txt'

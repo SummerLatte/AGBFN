@@ -30,28 +30,16 @@ class FERDataSet(data.Dataset):
             tmp = fin.readlines()
             for demo in tmp:
                 tmpp = demo.split(' ')
-                if phase == 'train':
-                    if tmpp[0] == 'train' or tmpp[0] == 'train':
-                        self.file_paths.append(self.data_path + tmpp[1])
-                        # print(self.data_path)
-                        if "FER2013plus" in self.data_path:
-                            self.label.append(int(tmpp[2])) #FER2013plus
-                        # pdb.set_trace()
-                        else:
-                            self.label.append(int(tmpp[2])) #RAFDB
-                        #  #affect ferplus
-                else:
-                    if tmpp[0] == phase:
-                        #affectnet
-                        # if int(tmpp[2]) == 7:
-                        #     continue
-                        self.file_paths.append(self.data_path + tmpp[1])
-                        if "FER2013plus" in self.data_path:
-                            self.label.append(int(tmpp[2])) #FER2013plus
-                        else:
-                            self.label.append(int(tmpp[2])) #RAFDB
-                        # self.label.append(int(tmpp[2]) - 1) #rafdb
-                        # self.label.append(int(tmpp[2])) #affect ferplus
+                if tmpp[0].startswith(phase):
+                    self.file_paths.append(self.data_path + "/" + tmpp[0])
+                    # print(self.data_path)
+                    if "FER2013plus" in self.data_path:
+                        self.label.append(int(tmpp[1].strip())) #FER2013plus
+                    # pdb.set_trace()
+                    else:
+                        self.label.append(int(tmpp[1].strip())) #RAFDB
+                    #  #affect ferplus
+
         ## use for ferplus and rafdb
         # if phase == 'train':
         #     self.data_path1 = data_path_list[1]
